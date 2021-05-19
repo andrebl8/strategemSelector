@@ -9,9 +9,6 @@ const SearchBar = () => {
     useEffect(() => {
         async function fetchSuggestions() {
             const resposne = await api.getAllTags()
-
-            console.log("resposne", resposne.data.data)
-
             setSuggestions(resposne.data.data)
         }
 
