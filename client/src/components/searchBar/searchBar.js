@@ -5,10 +5,8 @@ import api from '../../api';
 const SearchBar = ({ }) => {
     const [chips, setChips] = useState([])
     const [Suggestions, setSuggestions] = useState([])
-    let ignore = false;
-    useEffect(() => {
-       
 
+    useEffect(() => {
         async function fetchSuggestions() {
             const resposne = await api.getAllTags()
 
@@ -18,7 +16,6 @@ const SearchBar = ({ }) => {
         }
 
         fetchSuggestions();
-        return () => { ignore = true; }
     }, []);
 
     const onChange = chips => {
