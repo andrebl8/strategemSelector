@@ -139,11 +139,27 @@ getAllTags = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getStrategemByTag = async (req, res) => {
+    await Strategem.find({ tags: {$in:req.params.tags} }, (err, strategem) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+
+        if (!strategem) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Strategem not found` })
+        }
+        return res.status(200).json({ success: true, data: strategem })
+    }).catch(err => console.log(err))
+} 
+
 module.exports = {
     createStrategem,
     updateStrategem,
     deleteStrategem,
     getStrategems,
     getStrategemById,
-    getAllTags
+    getAllTags,
+    getStrategemByTag
 }
