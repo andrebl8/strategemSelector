@@ -1,5 +1,5 @@
 import React from 'react';
-import Test from '../components/test';
+import StrategmContainer from '../components/StrategmContainer';
 import '../style/main.scss';
 import SearchBar from '../components/searchBar/searchBar';
 
@@ -10,7 +10,7 @@ function App() {
         <h1 className="header-logo">Strategems</h1>
         <SearchBar />
       </header>
-      <Test />
+      <StrategmContainer />
       
 
     </div>

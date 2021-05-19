@@ -9,19 +9,19 @@ export const getAllStrategems = () => api.get(`/allStrategems`)
 export const getAllTags = () => api.get(`/allTags`)
 
 // post
-export const insertMovie = payload => api.post(`/strategem`, payload)
-export const updateMovieById = (id, payload) => api.put(`/strategem/${id}`, payload)
-export const getMovieById = id => api.get(`/strategem/${id}`)
+export const insertStrategem = payload => api.post(`/strategem`, payload)
+export const updateStrategemById = (id, payload) => api.put(`/strategem/${id}`, payload)
+export const getStragemById = id => api.get(`/strategem/${id}`)
 
 // delete
-export const deleteMovieById = id => api.delete(`/strategem/${id}`)
+export const deleteStragemById = id => api.delete(`/strategem/${id}`)
 
 const apis = {
-    insertMovie,
+    insertStrategem,
     getAllStrategems,
-    updateMovieById,
-    deleteMovieById,
-    getMovieById,
+    updateStrategemById,
+    deleteStragemById,
+    getStragemById,
     getAllTags,
 }
 

@@ -22,7 +22,6 @@ const SearchBar = ({ }) => {
     }, []);
 
     const onChange = chips => {
-        console.log("chips", chips)
         setChips([...chips]);
     }
 
