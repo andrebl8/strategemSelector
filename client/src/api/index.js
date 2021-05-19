@@ -7,6 +7,10 @@ const api = axios.create({
 // get
 export const getAllStrategems = () => api.get(`/allStrategems`)
 export const getAllTags = () => api.get(`/allTags`)
+export const getStrategemsByTags = payload => {
+    if (!payload.length) return;
+    api.post(`/strategemByTags`, {"tags": payload})
+}
 
 // post
 export const insertStrategem = payload => api.post(`/strategem`, payload)
@@ -23,6 +27,7 @@ const apis = {
     deleteStragemById,
     getStragemById,
     getAllTags,
+    getStrategemsByTags
 }
 
 export default apis

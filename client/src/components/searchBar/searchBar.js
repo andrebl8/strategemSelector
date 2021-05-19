@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Chips from 'react-chips';
 import api from '../../api';
 
-const SearchBar = ({ }) => {
+const SearchBar = () => {
     const [chips, setChips] = useState([])
     const [Suggestions, setSuggestions] = useState([])
 
@@ -18,8 +18,19 @@ const SearchBar = ({ }) => {
         fetchSuggestions();
     }, []);
 
+
+    const getStratByTags = async (body) => {
+        try {
+            await api.getStrategemsByTags(body)
+        } catch (e) {
+            console.error("something went wrong", e)
+        }
+    }
+
     const onChange = chips => {
         setChips([...chips]);
+        getStratByTags(chips);
+
     }
 
 

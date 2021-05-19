@@ -140,15 +140,16 @@ getAllTags = async (req, res) => {
 }
 
 getStrategemByTag = async (req, res) => {
-    await Strategem.find({ tags: {$in:req.params.tags} }, (err, strategem) => {
+    const body = req.body
+    await Strategem.find({ tags: {$in:body.tags} }, (err, strategem) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
 
-        if (!strategem) {
+        if (!strategem.length) {
             return res
                 .status(404)
-                .json({ success: false, error: `Strategem not found` })
+                .json({ success: false, error: `Strategem not found by tag` })
         }
         return res.status(200).json({ success: true, data: strategem })
     }).catch(err => console.log(err))

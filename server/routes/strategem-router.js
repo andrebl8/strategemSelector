@@ -11,6 +11,6 @@ router.delete('/strategem/:id', StrategemCtrl.deleteStrategem)
 router.get('/strategem/:id', StrategemCtrl.getStrategemById)
 router.get('/allStrategems', StrategemCtrl.getStrategems)
 router.get('/allTags', StrategemCtrl.getAllTags)
-router.get('/strategemByTags', StrategemCtrl.getStrategemByTag)
+router.post('/strategemByTags', StrategemCtrl.getStrategemByTag)
  
 module.exports = router
