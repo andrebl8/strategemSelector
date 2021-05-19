@@ -14,7 +14,9 @@ export const updateStrategemById = (id, payload) => api.put(`/strategem/${id}`, 
 export const getStragemById = id => api.get(`/strategem/${id}`)
 export const getStrategemsByTags = payload => {
     if (!payload.length) return;
-    api.post(`/strategemByTags`, {"tags": payload})
+    return api.post(`/strategemByTags`, {"tags": payload}).then((resposne) =>{ 
+        return resposne.data
+    })
 }
 
 // delete
